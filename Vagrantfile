@@ -1,4 +1,4 @@
-# -*- mode: ruby -*-
+1# -*- mode: ruby -*-
 # vi: set ft=ruby :
 
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
@@ -12,6 +12,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, '--cpus',   "2"]
   end
   config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision "shell", inline: "sudo /home/vagrant/mesos-0.20.0/build/bin/mesos-slave.sh --master=168.61.210.76:5050"
+  # config.vm.provision "shell", inline: "echo 'Hello World'"
 end
 
 

@@ -28,7 +28,9 @@ sudo ../configure
 sudo make
 sudo make check
 sudo make install
-sudo ./bin/mesos-slave.sh --master=168.61.210.76:5050
+
+# connect to master
+# sudo ./bin/mesos-slave.sh --master=168.61.210.76:5050
 
 # # other ?????
 # rm -rf /var/www
