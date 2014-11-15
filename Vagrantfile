@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # old master flag:  --master=168.61.210.76:5050"
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "shell", inline: "sudo /home/vagrant/mesos-0.20.0/build/bin/mesos-slave.sh --master=zk://april-zk.cloudapp.net:2181/var/zookeeper"
-  config.vm.provision :connect, inline: "echo Hello World"
+  # config.vm.provision :connect, inline: "echo Hello World"
   # config.vm.provision "shell", inline: "echo 'Hello World'"
 end
 
