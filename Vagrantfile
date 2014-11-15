@@ -11,8 +11,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
     vb.customize ["modifyvm", :id, '--cpus',   "2"]
   end
+  # old master flag:  --master=168.61.210.76:5050"
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision "shell", inline: "sudo /home/vagrant/mesos-0.20.0/build/bin/mesos-slave.sh --master=168.61.210.76:5050"
+  config.vm.provision "shell", inline: "sudo /home/vagrant/mesos-0.20.0/build/bin/mesos-slave.sh --master=zk://april-zk.cloudapp.net:2181/var/zookeeper"
+  config.vm.provision :connect, inline: "echo Hello World"
   # config.vm.provision "shell", inline: "echo 'Hello World'"
 end
 
