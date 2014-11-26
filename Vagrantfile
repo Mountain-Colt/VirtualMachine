@@ -6,6 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
+    # config.vm.network :private_network, ip: "10.141.141.10"
     # Setting memory and CPU
   config.vm.provider "virtualbox" do |vb|
     vb.customize ["modifyvm", :id, "--memory", "4096"]
@@ -13,6 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   # old master flag:  --master=168.61.210.76:5050"
   # config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision :shell, path: "test.sh", args: ENV['SHELL_ARGS']
+  config.vm.provision :shell, path: "run.sh", args: ENV['SHELL_ARGS']
   # config.vm.provision :shell, inline: "sudo /home/vagrant/mesos-0.20.0/build/bin/mesos-slave.sh --master=splinter2.cloudapp.net"
 end
