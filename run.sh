@@ -3,6 +3,6 @@ echo $1
 
 if [[ $1 = "run" ]]
 then
-	echo "Let's add these project to this slaves whitelist: "
+	echo "Let's run this command: "
 	$2
 fi
